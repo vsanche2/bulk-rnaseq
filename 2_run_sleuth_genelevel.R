@@ -3,8 +3,9 @@ sample_id = dir(file.path("~/projects/bulk_rna_seq/RUN1", "QUANT"))
 kal_dirs = file.path("~/projects/bulk_rna_seq/RUN1", "QUANT", sample_id)
 
 sample_sheet = "~/projects/bulk_rna_seq/SampleSheet.txt"
-so_object_name = "~/projects/bulk_rna_seq/RUN1/slth_obj_norm_TPMtrans"
-tpm_file = "~/projects/bulk_rna_seq/RUN1/abundance_genelevel_TPMtrans.txt"
+so_object_name = "~/projects/bulk_rna_seq/RUN1/slth_obj_norm_tpm"
+tpm_file = "~/projects/bulk_rna_seq/RUN1/abundance_genelevel_tpm.txt"
+
 ### Edit above block to appropriate paths/filenames
 ###-----------------------------------------------------------------------------------------
 
