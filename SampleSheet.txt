@@ -1,0 +1,9 @@
+RPTR147_PT12.4_S2	Post	1	101-012-0004	Melanoma	Neo
+RPTR147_PT12.4_S3	Pre	1	101-012-0004	Metastic Melanoma	Neo
+RPTR147_PT12.8_S1	Post	3	101-012-0008	Melanoma	Neo
+RPTR147_PT12.8_S7	Pre	3	101-012-0008	Metastatic Melanoma	Neo
+RPTR147_PT1.5_S10	Pre	2	101-001-0005	Melanoma	Neo
+RPTR147_PT1.5_S4	Post	2	101-001-0005	Metastic Melanoma	Neo
+RPTR147_PT6.3_S6	Pre	3	101-006-0003	Melanoma	Neo
+RPTR168_PT1.1_S3	Pre	1	102-001-0001	Squamous cell carcinoma of tongue	Neo
+RPTR168_PT1.3_S10	Pre	1	102-001-0003	Nasopharyngeal Carcinoma	Neo
