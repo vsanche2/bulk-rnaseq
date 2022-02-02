@@ -19,10 +19,9 @@ head(t2g,100)
 
 so <- sleuth_prep(s2c, 
                   extra_bootstrap_summary = TRUE, target_mapping = t2g, read_bootstrap_tpm=TRUE,
-                  aggregation_column="ext_gene", gene_mode=TRUE, 
-                  normalize=TRUE, transform_fun_tpm = function(x) log2(x+0.1))
+                  aggregation_column="ext_gene", gene_mode=TRUE, normalize=TRUE)
 #,transformation_function = function(x) log2(x+0.5))
-#transform_fun_tpm
+#transform_fun_tpm = function(x) log2(x+0.5))
 
 sleuth_save(so,"RUN1/slth_obj_norm_TPMtrans")
 
