@@ -29,10 +29,22 @@ cat $IN_DIR/$SAMPLE*R1* > ${OUT_DIR}/${SAMPLE}.${COND}.merged.R1.fastq.gz
 cat $IN_DIR/$SAMPLE*R2* > ${OUT_DIR}/${SAMPLE}.${COND}.merged.R2.fastq.gz
 
 #Run fastp
-fastp/fastp -h ${OUT_DIR}/${SAMPLE}.${COND}.fastp.html -j ${OUT_DIR}/${SAMPLE}.${COND}.fastp.json \
+fastp -h ${OUT_DIR}/${SAMPLE}.${COND}.fastp.html -j ${OUT_DIR}/${SAMPLE}.${COND}.fastp.json \
 -i ${OUT_DIR}/${SAMPLE}.${COND}.merged.R1.fastq.gz -I ${OUT_DIR}/${SAMPLE}.${COND}.merged.R2.fastq.gz \
 -o ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz -O ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz \
--y -3 --cut_tail_window_size 4 -5 --cut_front_window_size 4 --length_required 40
+--dedup \
+--cut_front \
+--cut_front_window_size \
+--cut_tail_window_size \
+--cut_tail \
+--n_base_limit \
+--length_required 40 \
+--low_complexity_filter \
+--overrepresentation_analysis
+#-y -3 --cut_tail_window_size 4 -5 --cut_front_window_size 4 --length_required 40
+
+#Run fastp
+fastqc
 
 #Run Kallisto
 mkdir -p ${OUT_DIR}/QUANT/${SAMPLE}.${COND}
