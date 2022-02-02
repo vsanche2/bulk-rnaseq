@@ -8,7 +8,7 @@ IN_DIR=NEO-fastqs
 TRIM_FASTQ_DIR=RUN1
 
 #For STAR
-GTF=""
+GTF="~/projects/bulk_rna_seq/HPVDetection/HPV-Hybrid/human_hpv.gtf"
 STAR_HPV_HYBRID_IDX="~/projects/bulk_rna_seq/HPVDetection/HPV-Hybrid/index"
 
 ##Edit block above to point to appropriate locations
