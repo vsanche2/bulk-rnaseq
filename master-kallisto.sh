@@ -44,14 +44,14 @@ fastp -h ${OUT_DIR}/${SAMPLE}.${COND}.fastp.html -j ${OUT_DIR}/${SAMPLE}.${COND}
 #-y -3 --cut_tail_window_size 4 -5 --cut_front_window_size 4 --length_required 40
 
 #Run fastp
-fastqc
+fastqc $OUT_DIR
 
 #Run Kallisto
 mkdir -p ${OUT_DIR}/QUANT/${SAMPLE}.${COND}
 kallisto quant -i $KALLISTO_IDX -o ${OUT_DIR}/QUANT/${SAMPLE}.${COND} --pseudobam --bias -b 100 -t 8 --fusion --rf-stranded ${TRIM_FASTQ_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${TRIM_FASTQ_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz &> ${OUT_DIR}/QUANT/${SAMPLE}.${COND}/${SAMPLE}.${COND}.kallisto.log
 
 #Run MultiQC
-multiqc -f ${OUT_DIR} ${OUT_DIR}/QUANT/
+multiqc -f $OUT_DIR ${OUT_DIR}/QUANT/
 
 done < <(cat $IN_SS)
 date
