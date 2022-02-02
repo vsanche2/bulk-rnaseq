@@ -48,7 +48,9 @@ fastqc $OUT_DIR
 
 #Run Kallisto
 mkdir -p ${OUT_DIR}/QUANT/${SAMPLE}.${COND}
-kallisto quant -i $KALLISTO_IDX -o ${OUT_DIR}/QUANT/${SAMPLE}.${COND} --pseudobam --bias -b 100 -t 8 --fusion --rf-stranded ${TRIM_FASTQ_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${TRIM_FASTQ_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz &> ${OUT_DIR}/QUANT/${SAMPLE}.${COND}/${SAMPLE}.${COND}.kallisto.log
+kallisto quant -i $KALLISTO_IDX -o ${OUT_DIR}/QUANT/${SAMPLE}.${COND} --pseudobam --bias -b 100 -t 8 --fusion ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz &> ${OUT_DIR}/QUANT/${SAMPLE}.${COND}/${SAMPLE}.${COND}.kallisto.log
+#--rf-stranded
+#--fr-stranded
 
 #Run MultiQC
 multiqc -f $OUT_DIR ${OUT_DIR}/QUANT/
