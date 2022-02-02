@@ -59,7 +59,7 @@ STAR --genomeDir $STAR_HPV_HYBRID_IDX \
 --outSAMtype BAM SortedByCoordinate \
 --outSAMunmapped Within \
 --outSAMattributes Standard \
---outFileNamePrefix ${SAMPLE}.${COND}
+--outFileNamePrefix ${SAMPLE}.${COND}.
 
 #Alignment QC http://qualimap.conesalab.org/doc_html/command_line.html
 qualimap rnaseq -outdir $OUT_QC \
