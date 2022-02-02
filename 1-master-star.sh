@@ -9,7 +9,7 @@ TRIM_FASTQ_DIR=RUN1
 
 #For STAR
 GTF=""
-KALLISTO_IDX=~/projects/bulk_rna_seq/kallisto/genome/homo_sapiens/transcriptome.idx
+STAR_HPV_HYBRID_IDX="~/projects/bulk_rna_seq/HPVDetection/HPV-Hybrid/index"
 
 ##Edit block above to point to appropriate locations
 ##-----------------------------------------------------------------------------------------------------------------------
@@ -50,10 +50,22 @@ fastqc $OUT_DIR
 #Run STAR
 mkdir -p ${OUT_DIR}/STAR/${SAMPLE}.${COND}
 
-kallisto quant -i $KALLISTO_IDX -o ${OUT_DIR}/QUANT/${SAMPLE}.${COND} --pseudobam --bias -b 100 -t 8 --fusion ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz &> ${OUT_DIR}/QUANT/${SAMPLE}.${COND}/${SAMPLE}.${COND}.kallisto.log
+STAR --genomeDir $STAR_HPV_HYBRID_IDX \
+--readFilesCommand zcat \
+--runThreadN 6 \
+--readFilesIn ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz \
+--outSAMtype BAM SortedByCoordinate \
+--outSAMunmapped Within \
+--outSAMattributes Standard \
+--outFileNamePrefix ${SAMPLE}.${COND}
 
 #Alignment QC
-qualimap rnaseq -outdir $OUT_DIR -a proportional -bam ${OUT_DIR}/STAR/${SAMPLE}.${COND}.bam -p strand-specific-reverse -gtf $GTF --java-mem-size=8G
+qualimap rnaseq -outdir $OUT_DIR \
+-a proportional \
+-bam ${OUT_DIR}/STAR/${SAMPLE}.${COND}.bam \
+-p strand-specific-reverse \
+-gtf $GTF \
+--java-mem-size=8G
 
 #Run MultiQC
 multiqc -f $OUT_DIR ${OUT_DIR}/STAR/
