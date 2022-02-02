@@ -44,7 +44,7 @@ fastp -h ${OUT_DIR}/${SAMPLE}.${COND}.fastp.html -j ${OUT_DIR}/${SAMPLE}.${COND}
 --overrepresentation_analysis
 #-y -3 --cut_tail_window_size 4 -5 --cut_front_window_size 4 --length_required 40
 
-#Run fastp
+#Run fastQC
 fastqc $OUT_DIR
 
 #Run STAR
@@ -59,13 +59,16 @@ STAR --genomeDir $STAR_HPV_HYBRID_IDX \
 --outSAMattributes Standard \
 --outFileNamePrefix ${SAMPLE}.${COND}
 
-#Alignment QC
+#Alignment QC http://qualimap.conesalab.org/doc_html/command_line.html
 qualimap rnaseq -outdir $OUT_DIR \
 -a proportional \
 -bam ${OUT_DIR}/STAR/${SAMPLE}.${COND}.bam \
 -p strand-specific-reverse \
 -gtf $GTF \
 --java-mem-size=8G
+
+#RNASEQC https://github.com/getzlab/rnaseqc
+rnaseqc --coverage $GTF ${OUT_DIR}/STAR/${SAMPLE}.${COND}.bam $OUT_DIR
 
 #Run MultiQC
 multiqc -f $OUT_DIR ${OUT_DIR}/STAR/
