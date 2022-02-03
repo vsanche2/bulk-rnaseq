@@ -19,7 +19,7 @@ date
 
 while IFS=$'\t' read line
 do
-	set $line
+    set $line
     SAMPLE=$1
     COND=$2
     echo "Started working on: "$SAMPLE $COND
