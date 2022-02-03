@@ -20,6 +20,12 @@ Discussion on TPM
 http://blog.nextgenetics.net/?e=51
 https://support.bioconductor.org/p/p132498/
 
+Tx2gene Salmon quant
+https://www.biostars.org/p/427481/
+
+ Salmon tximport
+ https://www.biostars.org/p/396362/
+
 tximport
 http://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html#Salmon
 
@@ -31,3 +37,18 @@ https://genestack.com/news/blog/review-of-rna-seq-normalisation-methods/
 
 Comparison of tools
 https://learn.gencore.bio.nyu.edu/rna-seq-analysis/salmon-kallisto-rapid-transcript-quantification-for-rna-seq-data/
+
+All tools overview
+https://bioinform.github.io/rnacocktail/
+
+HPV papers
+https://www.nature.com/articles/nature21386#Sec26
+https://www.researchgate.net/publication/357009314_Diverse_tumorigenic_consequences_of_human_papillomavirus_integration_in_primary_oropharyngeal_cancers
+https://genome.cshlp.org/content/early/2021/12/10/gr.275911.121.full.pdf+html
+https://f1000research.com/articles/4-1521/v2 Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences
+
+Comparing STAR vs Kallisto
+https://bioinformatics.stackexchange.com/questions/11470/star-quantmode-vs-rsem-vs-kallisto
+STAR and Salmon
+https://www.biostars.org/p/275459/
+https://www.biostars.org/p/9467870/
