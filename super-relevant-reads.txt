@@ -1,0 +1,33 @@
+sleuth
+https://pachterlab.github.io/sleuth_walkthroughs/trapnell/analysis.html
+https://rpubs.com/kapeelc12/Sleuth
+https://pachterlab.github.io/sleuth/docs/sleuth_prep.html
+Batch Effects : https://pachterlab.github.io/sleuth_walkthroughs/bottomly/analysis.html
+Kallisto/Sleuth : https://petridishtalk.com/2021/08/11/rnaseq/
+
+sleuth
+https://github.com/pachterlab/sleuth/issues/165 - sleuth_matrix tpm
+https://ycl6.gitbook.io/guide-to-rna-seq-analysis/differential-expression-analysis/dge-and-dte-analysis-of-salmon-inputs-using-sleuth
+https://rdrr.io/github/pachterlab/zika/man/sleuth_prep.html
+https://rawgit.com/pachterlab/sleuth/master/inst/doc/intro.html
+
+counts to tpm
+https://gist.github.com/slowkow/c6ab0348747f86e2748b
+https://gist.github.com/slowkow/6e34ccb4d1311b8fe62e
+https://www.biostars.org/p/335187/
+
+Discussion on TPM
+http://blog.nextgenetics.net/?e=51
+https://support.bioconductor.org/p/p132498/
+
+tximport
+http://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html#Salmon
+
+Salmon
+https://combine-lab.github.io/salmon/getting_started/#fnref:1
+
+Normalization
+https://genestack.com/news/blog/review-of-rna-seq-normalisation-methods/
+
+Comparison of tools
+https://learn.gencore.bio.nyu.edu/rna-seq-analysis/salmon-kallisto-rapid-transcript-quantification-for-rna-seq-data/
