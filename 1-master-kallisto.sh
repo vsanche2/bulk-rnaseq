@@ -57,3 +57,5 @@ multiqc -f $OUT_DIR ${OUT_DIR}/QUANT/
 
 done < <(cat $IN_SS)
 date
+
+#https://support.bioconductor.org/p/91218/
