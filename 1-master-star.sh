@@ -52,14 +52,23 @@ fastqc ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${OUT_DIR}/${SAMP
 #Run STAR
 mkdir -p ${OUT_DIR}/STAR/${SAMPLE}.${COND}
 
-STAR --genomeDir $STAR_HPV_HYBRID_IDX \
+STAR --runMode alignReads \
+--genomeDir $STAR_HPV_HYBRID_IDX \
+--sjdbGTFfile $gtfreference $GTF \
 --readFilesCommand zcat \
 --runThreadN 6 \
---readFilesIn ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz \
+--quantMode TranscriptomeSAM GeneCounts \
+--twopassMode Basic \
 --outSAMtype BAM SortedByCoordinate \
 --outSAMunmapped Within \
 --outSAMattributes Standard \
---outFileNamePrefix ${SAMPLE}.${COND}.
+--outFilterMultimapNmax 1 \
+--outFileNamePrefix ${SAMPLE}.${COND}. \
+--readFilesIn ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz
+
+#--outFilterMatchNmin 35 \
+
+
 
 #Alignment QC http://qualimap.conesalab.org/doc_html/command_line.html
 qualimap rnaseq -outdir $OUT_QC \
