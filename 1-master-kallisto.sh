@@ -46,6 +46,10 @@ fastp -h ${OUT_DIR}/${SAMPLE}.${COND}.fastp.html -j ${OUT_DIR}/${SAMPLE}.${COND}
 #Run fastp
 fastqc $OUT_DIR
 
+#Run fastQC https://home.cc.umanitoba.ca/~psgendb/doc/fastqc.help
+fastqc ${OUT_DIR}/${SAMPLE}.${COND}.merged.R1.fastq.gz ${OUT_DIR}/${SAMPLE}.${COND}.merged.R2.fastq.gz --outdir $OUT_DIR
+fastqc ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz --outdir $OUT_DIR
+
 #Run Kallisto
 mkdir -p ${OUT_DIR}/QUANT/${SAMPLE}.${COND}
 kallisto quant -i $KALLISTO_IDX -o ${OUT_DIR}/QUANT/${SAMPLE}.${COND} --pseudobam --bias -b 100 -t 8 --fusion ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R1.fastq.gz ${OUT_DIR}/${SAMPLE}.${COND}.merged.trimmed.R2.fastq.gz &> ${OUT_DIR}/QUANT/${SAMPLE}.${COND}/${SAMPLE}.${COND}.kallisto.log
